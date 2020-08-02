@@ -1,0 +1,170 @@
+:root {
+  --mainColor: #eaeaea;
+  --secondaryColor: #fff;
+
+  --borderColor: #c1c1c1;
+
+  --mainText: black;
+  --secondaryText: #4b5156;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  color: var(--mainText);
+  font-family: "Russo One", sans-serif;
+  font-weight: 500; 
+  /* this is to reduce the thickness of the header
+  notice that the  500 don't have px attached. */
+}
+
+p,
+li,
+span,
+label,
+input,
+textarea {
+  color: var(--secondaryText);
+  font-family: "Roboto Mono", monospace;
+}
+a {
+  text-decoration: none;
+  color: #17a2b8;
+}
+
+h1 {
+  font-size: 56px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 16px;
+}
+
+.s1 {
+  background-color: var(--mainColor);
+  border-bottom: 1px solid var(--borderColor);
+  overflow: auto;
+}
+
+.s2 {
+  background-color: var(--secondaryColor);
+  border-bottom: 1px solid var(--borderColor);
+  overflow: auto;
+}
+
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+  /* this is an old pattern of centering
+ it is a faster type but it needs a media 
+ query to make it responsive */
+}
+
+.greeting-wrapper {
+  display: grid;
+  border: 2px dotted;
+  text-align: center; /*we used this instead of justify content because we want the text to be perfectly in the center at all time. if we but the text in a wrapper then we can use justify content*/
+  align-content: center;
+  min-height: 10em;
+
+}
+
+.greeting-wrapper h1 {
+  border: 3px solid ;
+}
+
+.intro-wrapper{
+  background-color: var(--secondaryColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 20px 20px 0 0; /*this would set the border raduius only at the top*/
+
+
+  -webkit-box-shadow: 4px 3px 13px 2px rgba(252,3,252,1);
+-moz-box-shadow: 4px 3px 13px 2px rgba(252,3,252,1);
+box-shadow: 4px 3px 13px 2px rgba(252,3,252,1);
+
+
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 3em 30em; /*this is the gtr as we know and we just need this to make the height. You know that gtr makes the height or you can use fractions and then apply grid auto rows*/
+grid-template-areas: 
+'nav-wrapper nav-wrapper'
+'left-column right-column'
+
+
+;
+}
+
+.nav-wrapper {
+  border: 1px dashed lightcoral;
+  grid-area: nav-wrapper;
+  border-bottom: var(--borderColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dots-wrapper {
+  display: flex;
+  padding: 10px;
+    
+}
+
+#dot-1 {
+  background-color: #fc6058;
+}#dot-2 {
+  background-color: #fec02f;
+}#dot-3 {
+  background-color: #2aca3e;
+}  /*notice that both a div and a class was used where this id was used. This was bacause we needed to change different colors for each div.*/
+
+.browser-dot {
+  background-color: black;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%; /*recall that this makes a div a circle when border-radius: is 50%;*/
+  margin: 5px;
+
+}
+
+.left-column {
+  border: 1px dashed lightcoral;
+  grid-area: left-column;
+}
+
+
+.right-column {
+  border: 1px dashed lightcoral;
+  grid-area: right-column;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .main-container {
+    width: 90%;
+    /* this media query is to stop the 
+        screen from bringing up a scroll
+        when the size is less than 1200px */
+  }
+}
